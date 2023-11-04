@@ -359,21 +359,27 @@
 
 function bmiCalculator(){
     var bmiCalcCount
+    var ele = document.getElementById("resultIndicator")
     const height = parseInt(document.getElementById('heightInput').value)
     const weight = parseInt(document.getElementById('weightInput').value)
 
     bmiCalcCount = (weight/Math.pow((height/100),2)).toFixed(2)
-    document.getElementById('resultBMI').textContent = "Your BMI point is "+bmiCalcCount
+    document.getElementById('resultBMI').textContent = bmiCalcCount;
 
     if(bmiCalcCount>=18.5 && bmiCalcCount<=25){
         document.getElementById('resultIndicator').textContent = "You are Healthy!"
-    } else if(bmiCalcCount<16){
+        ele.style.backgroundColor='#008000'
+    }  else if(bmiCalcCount<16){
         document.getElementById('resultIndicator').textContent = "You are too Thin!"
+        ele.style.backgroundColor='#FFFFED'
     } else if(bmiCalcCount<18.5){
         document.getElementById('resultIndicator').textContent = "You are Thin!"
+        ele.style.backgroundColor='#FFFF00'
     } else if(bmiCalcCount<35){
         document.getElementById('resultIndicator').textContent = "You are overweight!"
+        ele.style.backgroundColor='#FFA500'
     } else{
         document.getElementById('resultIndicator').textContent = "You are Obesity!"
+        ele.style.backgroundColor='#ff0000'
     }
 }
